@@ -1,0 +1,57 @@
+.specialsFood {
+  display: inline-flex;
+  gap: 70px;
+  font-family: Karla;
+  font-size: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 40px 80px 40px;
+}
+
+.foodPhoto {
+  width: 250px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card {
+  width: 250px;
+  height: 480px;
+  background-color: #e4dbd2;
+  border-radius: 10px 10px 0 0;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.cardItem {
+  padding: 20px;
+}
+
+h2,
+.priceSection {
+  font-family: Markazi Text;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.orderDelivery {
+  font-weight: 600;
+}
+
+.delivery {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.price {
+  color: #ee9972;
+}

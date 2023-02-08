@@ -1,7 +1,8 @@
+import "../Footer.css";
 function Footer() {
   return (
-    <footer>
-      <p>Copyright ®2023</p>
+    <footer className="footer">
+      <p className="copyright">Copyright ®2023</p>
     </footer>
   );
 }

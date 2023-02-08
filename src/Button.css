@@ -1,0 +1,22 @@
+.button {
+  border-radius: 8px;
+  background-color: #f4ce14;
+  border: 2px solid #f4ce14;
+  color: #333333;
+  font-weight: 600;
+  font-family: Karla;
+  padding: 10px 25px;
+  font-size: 20px;
+}
+
+.button:hover {
+  background-color: #595128;
+  color: #edefee;
+  cursor: pointer;
+}
+
+.button:active {
+  border: 2px solid #edefee;
+  box-shadow: 2px 1px 1px #edefee;
+  cursor: pointer;
+}

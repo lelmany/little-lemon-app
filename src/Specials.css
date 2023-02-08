@@ -1,0 +1,12 @@
+.specials {
+  margin: 100px 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 90px;
+}
+.specialAdv {
+  font-family: Markazi Text;
+  font-weight: 500;
+  font-size: 40px;
+}
