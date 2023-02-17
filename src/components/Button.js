@@ -1,4 +1,4 @@
-import "../Button.css";
+import "../styles/Button.css";
 
 function Button({ children }) {
   return <button className="button">{children}</button>;

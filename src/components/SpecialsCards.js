@@ -1,4 +1,4 @@
-import "../SpecialsCards.css";
+import "../styles/SpecialsCards.css";
 import { MdMoped } from "react-icons/md";
 
 const specialFood = [

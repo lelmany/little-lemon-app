@@ -1,9 +1,10 @@
 .navBar {
   display: flex;
   justify-content: space-between;
-  margin: 20px 60px;
+  margin: 30px 60px;
   flex-wrap: wrap;
   font-family: Karla;
+  align-items: center;
 }
 
 .navItems {
@@ -13,10 +14,6 @@
   margin: 0 auto;
   gap: 20px;
   flex-wrap: wrap;
-}
-
-.logo {
-  margin-bottom: 20px;
 }
 
 .list {

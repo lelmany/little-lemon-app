@@ -1,5 +1,5 @@
 import Button from "./Button";
-import "../Specials.css";
+import "../styles/Specials.css";
 
 function Specials() {
   return (
