@@ -1,7 +1,11 @@
+import "../styles/ConfirmedBooking.css";
+
 function ConfirmedBooking() {
   return (
     <div className="bookingPage">
-      <p>Your booking has been succesfully confirmed.</p>
+      <p className="confirmation">
+        Your booking has been succesfully confirmed.
+      </p>
     </div>
   );
 }

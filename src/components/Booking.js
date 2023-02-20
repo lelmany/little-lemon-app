@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/Booking.css";
 
 function Booking({ availableTimes, submitForm }) {
   const [data, setData] = useState({
@@ -7,6 +8,10 @@ function Booking({ availableTimes, submitForm }) {
     guests: "",
     occasion: "",
   });
+
+  const getIsFormValid = () => {
+    return data.resDate && data.resTime && data.guests !== "";
+  };
 
   const clearForm = () => {
     setData({
@@ -19,14 +24,13 @@ function Booking({ availableTimes, submitForm }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (data.resDate !== "") {
+    if (getIsFormValid()) {
       if (window.submitAPI(data.resDate)) {
         submitForm(data.resDate, data.resTime);
       }
       clearForm();
-    } else {
-      window.alert("Please select date.");
     }
+    console.log(e);
   }
 
   function handleChange(e) {
@@ -35,37 +39,67 @@ function Booking({ availableTimes, submitForm }) {
       ...prevState,
       [name]: value,
     }));
-    console.log(value);
   }
+
+  const disabledDates = () => {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+    return yyyy + "-" + mm + "-" + dd;
+  };
 
   return (
     <main>
-      <h2 data-testid="header">Booking a Table</h2>
+      <h2 data-testid="header" className="header">
+        Booking a Table
+      </h2>
       <form className="bookingForm" onSubmit={handleSubmit}>
-        <fieldset>
+        <fieldset className="formField">
           <div className="field">
-            <label htmlFor="resDate">Choose date</label>
+            <label htmlFor="resDate" className="labelForm">
+              Select a date
+            </label>
             <input
+              className="inputField"
               type="date"
               id="resDate"
               data-testid="resDate"
+              aria-label="Select a date"
               name="resDate"
               value={data.resDate}
+              min={disabledDates()}
               onChange={handleChange}
             ></input>
           </div>
+
           <div className="field">
-            <label htmlFor="res-time">Choose time</label>
+            <label htmlFor="resTime" className="labelForm">
+              Choose time
+            </label>
             <select
+              className="inputField"
               id="resTime"
               data-testid="resTime"
               name="resTime"
+              aria-label="Choose time"
               value={data.resTime}
               onChange={handleChange}
             >
               {availableTimes.map((option) => {
                 return (
-                  <option key={option} value={option} aria-selected="false">
+                  <option
+                    key={option}
+                    value={option}
+                    aria-selected="false"
+                    className="inputField"
+                  >
                     {option}
                   </option>
                 );
@@ -73,27 +107,48 @@ function Booking({ availableTimes, submitForm }) {
             </select>
           </div>
           <div className="field">
-            <label htmlFor="guests">Number of guests</label>
+            <label htmlFor="guests" className="labelForm">
+              Number of guests
+            </label>
             <input
               type="number"
-              placeholder="2"
+              className="inputField"
+              placeholder="1"
               min="1"
               max="10"
               id="guests"
               name="guests"
+              aria-label="Number of guests"
               value={data.guests}
               onChange={handleChange}
             ></input>
           </div>
           <div className="field">
-            <label>Occasion</label>
-            <select id="occasion" value={data.occasion} onChange={handleChange}>
-              <option value="birthday">Birthday</option>
-              <option value="anniversary">Anniversary</option>
+            <label htmlFor="occasion" className="labelForm">
+              Occasion
+            </label>
+            <select
+              id="occasion"
+              value={data.occasion}
+              onChange={handleChange}
+              className="inputField"
+              aria-label="Occasion"
+            >
+              <option value="birthday" className="inputField">
+                Birthday
+              </option>
+              <option value="anniversary" className="inputField">
+                Anniversary
+              </option>
             </select>
           </div>
           <div className="field">
-            <button type="submit" aria-label="reserve a table">
+            <button
+              className="bookingButton"
+              type="submit"
+              aria-label="reserve a table"
+              disabled={!getIsFormValid()}
+            >
               Book a Table
             </button>
           </div>
