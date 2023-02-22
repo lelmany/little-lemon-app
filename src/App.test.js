@@ -1,16 +1,17 @@
 import { fireEvent, act, render, screen } from "@testing-library/react";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import Main from "./components/Main";
-import Booking from "./components/Booking";
+import BookingForm from "./components/booking/BookingForm";
+import BookingPage from "./pages/BookingPage";
+
 import "@testing-library/jest-dom/extend-expect";
-import userEvent from "@testing-library/user-event";
 
 // ____________1_____________
 test("Renders the Booking Form heading", () => {
   const component = render(
-    <BrowserRouter>
-      <Booking availableTimes={[]} submitForm={"2023-02-23"}></Booking>
-    </BrowserRouter>
+    <MemoryRouter initialEntries={["/reservations"]}>
+      <BookingPage availableTimes={[]} submitForm={"2023-02-23"}></BookingPage>
+    </MemoryRouter>
   );
 
   const headingElement = component.getByTestId("header");
@@ -51,6 +52,7 @@ test("test updateTimes", () => {
   window.submitAPI = function (date) {
     return true;
   };
+
   const component = render(
     <MemoryRouter initialEntries={["/reservations"]}>
       <Main />
@@ -69,29 +71,36 @@ test("test updateTimes", () => {
   fireEvent.change(component.getByTestId("resDate"), {
     target: { value: "2023-02-17" },
   });
+});
 
+test("Submitting the form mesage", () => {
   const componentBooking = render(
     <MemoryRouter initialEntries={["/reservations/ConfirmedBooking"]}>
       <Main />
     </MemoryRouter>
   );
-  const buttonElement = componentBooking.getByRole("button");
-  userEvent.click(buttonElement);
-  expect(
-    componentBooking.getByText("Your booking has been succesfully confirmed.")
-  ).toBeInTheDocument();
+
+  const confirmedMessage = componentBooking.getByTestId("confirmedMessage");
+
+  expect(confirmedMessage.textContent).toBe(
+    "Your booking has been succesfully confirmed."
+  );
 });
 
+//
 // _________________4
 
 test("submitting Form", () => {
   const componentSubmition = render(
     <MemoryRouter initialEntries={["/reservations"]}>
-      <Booking availableTimes={[]} submitForm={"2023-02-23"} />
+      <BookingForm availableTimes={[]} submitForm={"2023-02-23"} />
     </MemoryRouter>
   );
 
-  const submitButton = screen.getByRole("button");
+  // const submitButton = screen.getByRole("button");
+  // const submitButton = screen.getByText("Book a Table");
+
+  const submitButton = screen.getByText("Book a Table");
 
   fireEvent.click(submitButton);
 
@@ -103,11 +112,13 @@ test("submitting Form", () => {
 test("submitting Form", () => {
   const componentSubmition = render(
     <MemoryRouter initialEntries={["/reservations"]}>
-      <Booking availableTimes={[]} submitForm={"2023-02-23"} />
+      <BookingForm availableTimes={[]} submitForm={"2023-02-23"} />
     </MemoryRouter>
   );
 
-  const submitButton = screen.getByRole("button");
+  // const submitButton = screen.getByRole("button");
+
+  const submitButton = screen.getByText("Book a Table");
 
   fireEvent.click(submitButton);
 
@@ -124,7 +135,7 @@ test("validate input guests (valid)", () => {
 
   const componentSubmition = render(
     <MemoryRouter initialEntries={["/reservations"]}>
-      <Booking availableTimes={["17:00"]} submitForm={"2023-02-23"} />
+      <BookingForm availableTimes={["17:00"]} submitForm={"2023-02-23"} />
     </MemoryRouter>
   );
   const guestsInput = screen.getByLabelText(/guests/);
@@ -135,11 +146,12 @@ test("validate input guests (valid)", () => {
   fireEvent.select(timeInput, { target: { value: resTime } });
   const occasionInput = screen.getByLabelText(/Occasion/);
   fireEvent.select(occasionInput, { target: { value: occasion } });
-  const submitButton = screen.getByRole("button");
+  const submitButton = screen.getByText("Book a Table");
   fireEvent.click(submitButton);
 
   expect(resDate).toBe("2023-02-23");
   expect(resTime).toBe("17:00");
   expect(occasion).toBe("Anniversary");
   expect(guests).toBe(1);
+  // expect(submitButton).toHaveProperty("disabled", false);
 });

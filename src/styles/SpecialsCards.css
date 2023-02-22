@@ -27,6 +27,9 @@
   padding-bottom: 20px;
 }
 
+.foodDesription {
+  margin-bottom: 25px;
+}
 .priceSection {
   display: flex;
   justify-content: space-between;
@@ -35,7 +38,9 @@
 .orderDelivery {
   font-weight: 600;
 }
-
+.icon {
+  padding: 15px;
+}
 .price {
   color: #ee9972;
   font-weight: 500;

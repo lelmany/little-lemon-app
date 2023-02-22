@@ -18,11 +18,11 @@ function SpecialsCards() {
               <h2 className="cardTitle">{foodItem.title}</h2>
               <p className="price">{foodItem.price}</p>
             </div>
-            <p>{foodItem.description}</p>
+            <p className="foodDesription">{foodItem.description}</p>
             <div className="delivery">
               <p className="orderDelivery">
                 Order a delivery
-                <span>
+                <span className="icon">
                   <MdMoped />
                 </span>
               </p>

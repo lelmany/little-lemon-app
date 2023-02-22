@@ -47,7 +47,6 @@ function BookingForm({ availableTimes, submitForm }) {
               aria-label="Select a date"
               name="resDate"
               value={date}
-              // value={data.resDate}
               min={localISOTime()}
               onChange={(e) => {
                 setDate(e.target.value);
@@ -89,7 +88,7 @@ function BookingForm({ availableTimes, submitForm }) {
             <input
               type="number"
               className="inputField guestsNum"
-              placeholder="1"
+              placeholder="--"
               min="1"
               max="10"
               id="guests"
