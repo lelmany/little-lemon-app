@@ -5,7 +5,7 @@ function Specials() {
   return (
     <section className="specials">
       <p className="specialAdv">This week specials!</p>
-      <Button>Online Menu</Button>
+      <Button className="button">Online Menu</Button>
     </section>
   );
 }

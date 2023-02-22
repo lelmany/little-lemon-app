@@ -1,59 +1,35 @@
 import { useState } from "react";
 import localISOTime from "./localISOTime";
-import "../styles/Booking.css";
+import GuestsErrorMessage from "./GuestsErrorMessage";
+import Button from "../Button";
+import "../../styles/Booking.css";
 
 function BookingForm({ availableTimes, submitForm }) {
-  const [data, setData] = useState({
-    resDate: "",
-    resTime: availableTimes[0],
-    guests: "",
-    occasion: "",
-  });
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState(availableTimes[0]);
+  const [guests, setGuests] = useState({ value: "", isTouched: false });
+  const [occasion, setOccasion] = useState("Birthday");
 
   const getIsFormValid = () => {
-    return data.resDate && data.resTime && data.guests !== "";
+    return date && time && guests.value !== "";
   };
 
   const clearForm = () => {
-    setData({
-      resDate: "",
-      resTime: availableTimes[0],
-      guests: "",
-      occasion: "",
-    });
+    setDate("");
+    setTime(availableTimes[0]);
+    setGuests({ value: "", isTouched: false });
+    setOccasion("");
   };
 
   function handleSubmit(e) {
     e.preventDefault();
     if (getIsFormValid()) {
-      if (window.submitAPI(data.resDate)) {
-        submitForm(data.resDate, data.resTime);
+      if (window.submitAPI(date)) {
+        submitForm(date, time);
       }
       clearForm();
     }
   }
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  }
-
-  // const disabledDates = () => {
-  //   let today = new Date();
-  //   let dd = today.getDate();
-  //   let mm = today.getMonth() + 1;
-  //   let yyyy = today.getFullYear();
-  //   if (mm < 10) {
-  //     mm = "0" + mm;
-  //   }
-  //   if (dd < 10) {
-  //     dd = "0" + dd;
-  //   }
-  //   return yyyy + "-" + mm + "-" + dd;
-  // };
 
   return (
     <main>
@@ -70,9 +46,12 @@ function BookingForm({ availableTimes, submitForm }) {
               data-testid="resDate"
               aria-label="Select a date"
               name="resDate"
-              value={data.resDate}
+              value={date}
+              // value={data.resDate}
               min={localISOTime()}
-              onChange={handleChange}
+              onChange={(e) => {
+                setDate(e.target.value);
+              }}
             ></input>
           </div>
 
@@ -86,8 +65,8 @@ function BookingForm({ availableTimes, submitForm }) {
               data-testid="resTime"
               name="resTime"
               aria-label="Choose time"
-              value={data.resTime}
-              onChange={handleChange}
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
             >
               {availableTimes.map((option) => {
                 return (
@@ -109,25 +88,36 @@ function BookingForm({ availableTimes, submitForm }) {
             </label>
             <input
               type="number"
-              className="inputField"
+              className="inputField guestsNum"
               placeholder="1"
               min="1"
               max="10"
               id="guests"
               name="guests"
               aria-label="Number of guests"
-              value={data.guests}
-              onChange={handleChange}
+              value={guests.value}
+              onChange={(e) => {
+                setGuests({ ...guests, value: e.target.value });
+              }}
+              onBlur={() => {
+                setGuests({ ...guests, isTouched: true });
+              }}
             ></input>
           </div>
+          {guests.isTouched && guests.value.length < 1 ? (
+            <GuestsErrorMessage />
+          ) : null}
+
           <div className="field">
             <label htmlFor="occasion" className="labelForm">
               Occasion
             </label>
             <select
               id="occasion"
-              value={data.occasion}
-              onChange={handleChange}
+              value={occasion}
+              onChange={(e) => {
+                setOccasion(e.target.value);
+              }}
               className="inputField"
               aria-label="Occasion"
             >
@@ -139,15 +129,15 @@ function BookingForm({ availableTimes, submitForm }) {
               </option>
             </select>
           </div>
-          <div className="field">
-            <button
-              className="bookingButton"
+          <div className="field confirmation">
+            <Button
+              className="button"
               type="submit"
               aria-label="reserve a table"
               disabled={!getIsFormValid()}
             >
               Book a Table
-            </button>
+            </Button>
           </div>
         </fieldset>
       </form>

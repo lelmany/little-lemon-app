@@ -8,24 +8,26 @@
   align-items: center;
 }
 
-.navItems {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.list {
+a:link {
   text-decoration: none;
   font-weight: 600;
   color: #495e57;
 }
 
-.list :hover {
-  transition: all 0.25s ease-out;
-  border: 2px solid #495e57;
-  border-radius: 5px;
-  padding: 5px 10px;
+a:visited {
+  text-decoration: none;
+  color: #495e57;
+}
+
+a:hover:not(:first-child) {
+  cursor: pointer;
+  transition: all 0.7s ease-out;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  color: #f4ce14;
+}
+
+a:active {
+  text-decoration: none;
+  color: #495e57;
 }

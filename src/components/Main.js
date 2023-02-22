@@ -10,7 +10,7 @@ import OrderOnlinePage from "../pages/OrderOnlinePage";
 import ContactPage from "../pages/ContactPage";
 import LoginPage from "../pages/LoginPage";
 import Nav from "./Nav";
-import ConfirmedBooking from "./ConfirmedBooking";
+import ConfirmedBooking from "./booking/ConfirmedBooking";
 // import "../styles/Main.css";
 
 function Main() {

@@ -14,7 +14,7 @@ function CallToAction() {
           recipes served with a modern twist.
         </p>
         <Link to="/reservations">
-          <Button>Reserve a Table</Button>
+          <Button className="button">Reserve a Table</Button>
         </Link>
       </section>
       <img

@@ -1,4 +1,4 @@
-import BookingForm from "../components/BookingForm";
+import BookingForm from "../components/booking/BookingForm";
 
 function BookingPage({ availableTimes, submitForm }) {
   return (

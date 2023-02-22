@@ -29,18 +29,6 @@
   font-size: 18px;
 }
 
-/* .bookingButton:hover {
-  background-color: #595128;
-  color: #edefee;
-  cursor: pointer;
-}
-
-.bookingButton:active {
-  border: 2px solid #53aa7e;
-  box-shadow: 2px 1px 1px #65a887;
-  cursor: pointer;
-} */
-
 .inputField {
   font-size: 18px;
 }
@@ -48,4 +36,9 @@
 .errorMsg {
   color: red;
   padding-left: 20px;
+}
+
+.confirmation {
+  display: flex;
+  justify-content: center;
 }

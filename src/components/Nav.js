@@ -6,34 +6,30 @@ function Nav() {
   return (
     <section>
       <nav className="navBar">
-        <Link to="/">
-          <img
-            className="logo"
-            src="/icons_assets/Logo .svg"
-            alt="logo"
-            width="180px"
-          ></img>
+        <Link to="/" className="logo">
+          <img src="/icons_assets/Logo .svg" alt="logo" width="180px"></img>
         </Link>
+
         <Link to="/" className="list">
-          <a>Home</a>
+          Home
         </Link>
         <Link to="/about" className="list">
-          <a>About</a>
+          About
         </Link>
         <Link to="/menu" className="list">
-          <a>Menu</a>
+          Menu
         </Link>
         <Link to="/reservations" className="list">
-          <a>Reservations</a>
+          Reservations
         </Link>
         <Link to="/order" className="list">
-          <a>Order Online</a>
+          Order Online
         </Link>
         <Link to="/contact" className="list">
-          <a>Contact</a>
+          Contact
         </Link>
         <Link to="/login" className="list">
-          <a>Login</a>
+          Login
         </Link>
       </nav>
     </section>

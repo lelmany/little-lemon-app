@@ -1,7 +1,7 @@
 .button {
   border-radius: 8px;
   background-color: #f4ce14;
-  border: 2px solid #f4ce14;
+  /* border: 2px solid #f4ce14; */
   color: #333333;
   font-weight: 600;
   font-family: Karla;
@@ -19,4 +19,11 @@
   border: 2px solid #edefee;
   box-shadow: 2px 1px 1px #edefee;
   cursor: pointer;
+}
+
+.button:disabled {
+  background-color: #83837f;
+  color: #eef5ee;
+  /* box-shadow: 2px 1px 1px #98978f; */
+  cursor: auto;
 }
