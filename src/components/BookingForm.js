@@ -1,7 +1,8 @@
 import { useState } from "react";
+import localISOTime from "./localISOTime";
 import "../styles/Booking.css";
 
-function Booking({ availableTimes, submitForm }) {
+function BookingForm({ availableTimes, submitForm }) {
   const [data, setData] = useState({
     resDate: "",
     resTime: availableTimes[0],
@@ -30,7 +31,6 @@ function Booking({ availableTimes, submitForm }) {
       }
       clearForm();
     }
-    console.log(e);
   }
 
   function handleChange(e) {
@@ -41,25 +41,22 @@ function Booking({ availableTimes, submitForm }) {
     }));
   }
 
-  const disabledDates = () => {
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1;
-    let yyyy = today.getFullYear();
-    if (mm < 10) {
-      mm = "0" + mm;
-    }
-    if (dd < 10) {
-      dd = "0" + dd;
-    }
-    return yyyy + "-" + mm + "-" + dd;
-  };
+  // const disabledDates = () => {
+  //   let today = new Date();
+  //   let dd = today.getDate();
+  //   let mm = today.getMonth() + 1;
+  //   let yyyy = today.getFullYear();
+  //   if (mm < 10) {
+  //     mm = "0" + mm;
+  //   }
+  //   if (dd < 10) {
+  //     dd = "0" + dd;
+  //   }
+  //   return yyyy + "-" + mm + "-" + dd;
+  // };
 
   return (
     <main>
-      <h2 data-testid="header" className="header">
-        Booking a Table
-      </h2>
       <form className="bookingForm" onSubmit={handleSubmit}>
         <fieldset className="formField">
           <div className="field">
@@ -74,7 +71,7 @@ function Booking({ availableTimes, submitForm }) {
               aria-label="Select a date"
               name="resDate"
               value={data.resDate}
-              min={disabledDates()}
+              min={localISOTime()}
               onChange={handleChange}
             ></input>
           </div>
@@ -158,4 +155,4 @@ function Booking({ availableTimes, submitForm }) {
   );
 }
 
-export default Booking;
+export default BookingForm;

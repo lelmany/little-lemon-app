@@ -1,8 +1,16 @@
+import "../styles/AboutPage.css";
+
 function AboutPage() {
   return (
-    <section>
+    <section className="aboutPage">
       <h2>About Little Lemon Restaurant</h2>
-      <p> Here you can read about Little Lemon Restaurant</p>
+      <p> Meet our owners Mario and Adrian</p>
+      <img
+        src="/icons_assets/Mario and Adrian b.jpg"
+        width="500px"
+        alt="photo of owners Mario and Adrian"
+        className="ownersPhoto"
+      ></img>
     </section>
   );
 }

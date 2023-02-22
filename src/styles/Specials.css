@@ -1,12 +1,13 @@
 .specials {
-  margin: 100px 60px;
+  margin: 100px;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 90px;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
 }
+
 .specialAdv {
   font-family: Markazi Text;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 40px;
 }

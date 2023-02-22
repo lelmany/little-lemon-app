@@ -1,5 +1,4 @@
 import "../styles/Nav.css";
-import "../styles/Main.css";
 
 import { Link } from "react-router-dom";
 
@@ -7,27 +6,34 @@ function Nav() {
   return (
     <section>
       <nav className="navBar">
-        <img className="logo" src="/icons_assets/Logo .svg" alt="logo"></img>
+        <Link to="/">
+          <img
+            className="logo"
+            src="/icons_assets/Logo .svg"
+            alt="logo"
+            width="180px"
+          ></img>
+        </Link>
         <Link to="/" className="list">
-          Home
+          <a>Home</a>
         </Link>
         <Link to="/about" className="list">
-          About
+          <a>About</a>
         </Link>
         <Link to="/menu" className="list">
-          Menu
+          <a>Menu</a>
         </Link>
         <Link to="/reservations" className="list">
-          Reservations
+          <a>Reservations</a>
         </Link>
         <Link to="/order" className="list">
-          Order Online
+          <a>Order Online</a>
         </Link>
         <Link to="/contact" className="list">
-          Contact
+          <a>Contact</a>
         </Link>
         <Link to="/login" className="list">
-          Login
+          <a>Login</a>
         </Link>
       </nav>
     </section>

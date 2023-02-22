@@ -1,7 +1,7 @@
 import React from "react";
 import { useReducer } from "react";
-
-import "../styles/Main.css";
+import { Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import MenuPage from "../pages/MenuPage";
@@ -11,8 +11,7 @@ import ContactPage from "../pages/ContactPage";
 import LoginPage from "../pages/LoginPage";
 import Nav from "./Nav";
 import ConfirmedBooking from "./ConfirmedBooking";
-import { Route, Routes } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import "../styles/Main.css";
 
 function Main() {
   //This function will change the availableTimes based on the selected date.

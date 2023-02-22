@@ -1,12 +1,15 @@
-import Booking from "../components/Booking";
+import BookingForm from "../components/BookingForm";
 
 function BookingPage({ availableTimes, submitForm }) {
   return (
     <section>
-      <Booking
+      <h2 data-testid="header" className="header">
+        Booking a Table
+      </h2>
+      <BookingForm
         availableTimes={availableTimes}
         submitForm={submitForm}
-      ></Booking>
+      ></BookingForm>
     </section>
   );
 }

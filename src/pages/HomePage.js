@@ -1,7 +1,6 @@
 import Footer from "../components/Footer";
 import Specials from "../components/Specials";
 import SpecialsCards from "../components/SpecialsCards";
-
 import CallToAction from "../components/CallToAction";
 
 function HomePage() {

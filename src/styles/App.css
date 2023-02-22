@@ -1,7 +1,49 @@
 /* primary colors #495E57 #F4CE14 
 Secondary colors  #EE9972 #FBDABB #EDEFEE #333333 */
 
+/* Typefaces 
+
+Markazi text
+display Title - Medium 64;
+Sub Title - keep close to display;
+regular 40pt;
+ */
+
+/* 
+ Karla 
+ Lead text! Use this for descriptive items to catch attention (home page or Call to action)
+ medium 18 pt; */
+
+/* 
+ Section title
+UPPERCASE 20pt Extra bold
+ This week specials! Section categories 16pt Extra Bold;  */
+
+/* 
+Card title 
+18pt Bold */
+
+/* Paragraph text 
+regular 16pt
+1.5 line heigth 
+max 65 characters per line  */
+
+/* Highlight text 
+e.g. price medium 16 px; */
+
 * {
   margin: 0;
   padding: 0;
+}
+
+p {
+  font-family: Karla;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 35ch;
+}
+
+h2 {
+  font-family: Markazi Text;
+  font-size: 40px;
 }

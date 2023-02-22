@@ -4,6 +4,7 @@
   margin: 30px 60px;
   flex-wrap: wrap;
   font-family: Karla;
+  font-size: 16px;
   align-items: center;
 }
 
@@ -17,11 +18,14 @@
 }
 
 .list {
-  display: inline;
-}
-
-.link {
   text-decoration: none;
   font-weight: 600;
-  color: black;
+  color: #495e57;
+}
+
+.list :hover {
+  transition: all 0.25s ease-out;
+  border: 2px solid #495e57;
+  border-radius: 5px;
+  padding: 5px 10px;
 }

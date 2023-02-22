@@ -1,16 +1,21 @@
 import Button from "./Button";
+import { Link } from "react-router-dom";
+import "../styles/CallToAction.css";
+import "../styles/Button.css";
 
 function CallToAction() {
   return (
     <article className="mainContent">
       <section className="mainText">
-        <h2 className="title">Little Lemon</h2>
-        <h3 className="subtitle">Chicago</h3>
+        <h1 className="displayTitle">Little Lemon</h1>
+        <h2 className="subtitle">Chicago</h2>
         <p className="description">
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
         </p>
-        <Button>Reserve a Table</Button>
+        <Link to="/reservations">
+          <Button>Reserve a Table</Button>
+        </Link>
       </section>
       <img
         className="restaurantPhoto"

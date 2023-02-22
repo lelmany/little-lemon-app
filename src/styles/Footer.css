@@ -1,10 +1,13 @@
 .footer {
+  display: flex;
+  gap: 40px;
   background-color: #fbdabb;
   color: #333333;
   font-family: Karla;
   padding: 10px 60px;
+  align-items: center;
 }
 
 .copyright {
-  font-size: 18px;
+  font-size: 16px;
 }

@@ -2,7 +2,6 @@
   display: block;
   flex-wrap: wrap;
   color: #edefee;
-  font-family: Markazi Text;
   background-color: #495e57;
   padding-top: 20px;
 }
@@ -15,20 +14,22 @@
   margin-bottom: 20px;
 }
 
-.description {
-  margin: 30px 0 20px 0;
-  font-size: 20px;
-  font-family: Karla;
-  font-weight: 500;
-}
-
-.title {
-  color: #f4ce14;
+.displayTitle {
+  font-family: Markazi Text;
   font-size: 64px;
+  color: #f4ce14;
 }
 
 .subtitle {
+  line-height: 0.5;
   font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .restaurantPhoto {
