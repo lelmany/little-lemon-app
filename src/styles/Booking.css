@@ -12,6 +12,7 @@
 .formField {
   border-radius: 10px;
   width: 350px;
+  background-color: #edefee;
 }
 .field {
   display: flex;

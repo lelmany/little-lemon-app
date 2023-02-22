@@ -1,0 +1,15 @@
+.contactContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 80px;
+}
+.contactSection {
+  /* padding-top: 20px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #fbdabb;
+  border-radius: 10px;
+  padding: 10px;
+}

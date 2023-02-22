@@ -11,7 +11,7 @@ function AboutPage() {
       <img
         src="/icons_assets/Mario and Adrian b.jpg"
         width="500px"
-        alt="photo of owners Mario and Adrian"
+        alt="owners Mario and Adrian"
         className="ownersPhoto"
       ></img>
     </section>

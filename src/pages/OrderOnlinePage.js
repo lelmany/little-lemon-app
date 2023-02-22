@@ -1,8 +1,10 @@
 function OrderOnlinePage() {
   return (
     <section>
-      <h2>Order Online</h2>
-      <p>This page is under construction</p>
+      <h2 style={{ textAlign: "center" }}>Order Online</h2>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <p>This page is under construction</p>
+      </div>
     </section>
   );
 }

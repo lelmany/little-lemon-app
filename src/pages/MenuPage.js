@@ -1,8 +1,10 @@
 function MenuPage() {
   return (
     <section>
-      <h2>Menu</h2>
-      <p>This page is under construction</p>
+      <h2 style={{ textAlign: "center" }}>Menu</h2>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <p>This page is under construction</p>
+      </div>
     </section>
   );
 }
